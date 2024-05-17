@@ -21,7 +21,7 @@ serde = { version = "1.0.183", features = ["derive"] }
 rand = { version = "0.8.5", optional = true }
 env_logger = "0.10.0"
 dotenv ={ version = "0.15.0", optional = true }
-llm = { git = "https://github.com/rustformers/llm.git", branch = "main", optional = true, features = ["metal"] }
+llm = { git = "https://github.com/rustformers/llm.git", branch = "main", optional = true}
 actix-ws = { version = "0.2.5", optional = true }
 actix-rt = { version = "2.8.0", optional = true }
 futures = { version = "0.3.28", optional = true }
@@ -33,6 +33,7 @@ web-sys = { version = "0.3.64" }
 csr = ["leptos/csr", "leptos_meta/csr", "leptos_router/csr"]
 hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate", "gloo-net/websocket", "dep:futures"]
 ssr = ["dep:actix-files", "dep:actix-web", "dep:leptos_actix", "leptos/ssr", "leptos_meta/ssr", "leptos_router/ssr", "dep:rand", "dep:dotenv", "dep:llm", "dep:actix-ws", "dep:actix-rt", "dep:futures", "tokio/sync"]
+metal = ["llm/metal"]
 
 [profile.dev.package.ggml-sys]
 opt-level = 3
@@ -53,7 +54,7 @@ style-file = "style/output.css"
 # Optional. Env: LEPTOS_ASSETS_DIR.
 assets-dir = "assets"
 # The IP and port (ex: 127.0.0.1:3000) where the server serves the content. Use it in your server setup.
-site-addr = "127.0.0.1:3000"
+site-addr = "0.0.0.0:3000"
 # The port to use for automatic reload monitoring
 reload-port = 3001
 # [Optional] Command to use when running end2end tests. It will run in the end2end dir.
